@@ -1,0 +1,6 @@
+name: "ui"
+generator: "helm"
+path: "../service-chart"
+subcomponents:
+- name: "stable"
+  source: "./stable"

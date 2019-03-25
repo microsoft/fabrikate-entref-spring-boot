@@ -1,3 +1,5 @@
+# fabrikate-entref-spring-boot
+A [Fabrikate](https://github.com/Microsoft/fabrikate) definition for [Project Jackson](https://github.com/Microsoft/entref-spring-boot)
 
 # Contributing
 

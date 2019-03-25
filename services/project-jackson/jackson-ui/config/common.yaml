@@ -1,0 +1,20 @@
+config:
+  service:
+      name: jackson-ui
+      port: 8080
+      labelName: jackson
+  fullnameOverride: spring-boot-ui
+  appName: spring-boot-ui
+  enableVirtualService: false
+  enableDestinationRule: false
+# subcomponents:
+#   canary:
+#     config:
+#       service:
+#         port: 8080
+#         labelName: jackson
+#   stable:
+#     config:
+#       service:
+#         port: 8080
+#         labelName: jackson

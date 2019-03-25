@@ -1,0 +1,6 @@
+config:
+  image:
+    repository: mtarng/jackson-ui
+    tag: v1.1
+  replicas: 1
+  version: canary

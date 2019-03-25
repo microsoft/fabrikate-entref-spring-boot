@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.fullnameOverride }}
+  labels:
+    app: {{ .Values.appName }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate #Parameterize?
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+        version: {{ .Values.version }}
+      annotations:
+        prometheus.io/path: '/api/actuator/prometheus'
+        prometheus.io/port: '8080'
+        prometheus.io/scrape: 'true'
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          ports:
+            {{- toYaml .Values.ports | nindent 10 }}
+          env:
+          - name: SERVER_SERVLET_CONTEXT_PATH
+            value: "/api"
+          - name: spring.profiles.active
+            value: {{ .Values.springProfilesActive | quote}}
+          - name: DB_CONNSTR # a mongo database connection string (ex: mongodb://db.com/myDb)
+            valueFrom:
+              secretKeyRef:
+                name: jackson-secrets
+                key: DB_CONNSTR
+          - name: DB_NAME # a mongo database name (ex: myDb)
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretKeyRef }}
+                key: DB_NAME
+          - name: EXCLUDE_FILTER # [optional] a (regex capable) list of classes to exclude from loading (ex: TitleRepository,PersonRepository)
+            value: ""
+          - name: ALLOWED_ORIGIN # For CORS stuff
+            value: "*"
+          - name: OAUTH_KEYSET_URI
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretKeyRef }}
+                key: OAUTH_KEYSET_URI
+          - name: OAUTH_RES_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretKeyRef }}
+                key: OAUTH_RES_ID
+          - name: JAEGER_AGENT_HOST
+            value: {{ .Values.jaegerAgentHost | quote}}
+          - name: JAEGER_AGENT_PORT
+            value: {{ .Values.jaegerAgentPort | quote }}

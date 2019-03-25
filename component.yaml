@@ -1,0 +1,4 @@
+name: fabrikate-project-jackson
+subcomponents:
+- name: services
+  source: "./services"

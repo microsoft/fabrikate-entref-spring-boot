@@ -1,0 +1,8 @@
+name: service-chart
+description: Chart for deploying service-wide components for a microservice
+version: 0.1.0
+sources:
+- https://github.com/timfpark/fabrikate-multicluster-multideployment
+maintainers:
+- name: timfpark
+  email: timfpark@gmail.com
