@@ -1,7 +1,7 @@
 # fabrikate-entref-spring-boot
-A [Fabrikate](https://github.com/Microsoft/fabrikate) definition for [Project Jackson](https://github.com/Microsoft/entref-spring-boot)
+A [Fabrikate](https://github.com/Microsoft/fabrikate) definition for [Project Jackson](https://github.com/Microsoft/entref-spring-boot). 
 
-If you're unfamiliar with how to set up your high level definition, read instructions [here](https://github.com/Microsoft/fabrikate#getting-started).
+As part of [Bedrock](https://github.com/Microsoft/bedrock), we attempt to offer higher level of abstraction than editing resource manifest files directly. This repo would be used in the generation of low level Kubernetes resource manifest files tied to a deployment. If you're unfamiliar with how to set up your high level definition, read instructions [here](https://github.com/Microsoft/fabrikate#getting-started). 
 
 As an example for Project Jackson, you may set up your HLD repo like below:
 ```
@@ -30,3 +30,5 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+For project related questions or comments, please contact [Tim Park](https://github.com/timfpark).
