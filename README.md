@@ -1,6 +1,22 @@
 # fabrikate-entref-spring-boot
 A [Fabrikate](https://github.com/Microsoft/fabrikate) definition for [Project Jackson](https://github.com/Microsoft/entref-spring-boot)
 
+If you're unfamiliar with how to set up your high level definition, read instructions [here](https://github.com/Microsoft/fabrikate#getting-started).
+
+As an example for Project Jackson, you may set up your HLD repo like below:
+```
+name: sample-app
+subcomponents:
+  - name: "cloud-native"
+    source: "https://github.com/timfpark/fabrikate-cloud-native"
+    method: "git"
+  - name: "project-jackson"
+    source: "https://github.com/microsoft/fabrikate-entref-spring-boot"
+    method: "git"
+```
+
+This `sample-app` includes this fabrikate definition for `entrf-spring-boot` and `cloud-native`, which are some of the stacks needed to run Project Jackson. 
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
